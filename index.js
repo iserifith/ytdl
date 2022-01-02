@@ -10,7 +10,6 @@ app.get("/", function (req, res) {
 });
 
 app.post("/add", function (req, res) {
-    console.log({ req });
     youtubedl(req.body.url, {
         dumpSingleJson: true,
         noWarnings: true,
