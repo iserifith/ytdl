@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "axios": "^0.24.0",
+        "express": "^4.17.2",
+        "youtube-dl-exec": "^2.0.2"
+    },
+    "name": "ummi",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js"
+    }
+}
