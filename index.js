@@ -14,23 +14,21 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-app.use("/downloads", express.static("/downloads"));
-app.use("/downloads", serveIndex(__dirname + "/downloads"));
+// app.use("/downloads", express.static("/downloads"));
+// app.use("/downloads", serveIndex(__dirname + "/downloads"));
 
 app.post("/add", function (req, res) {
     youtubedl(req.body.url, {
-        // dumpSingleJson: true,
+        dumpSingleJson: true,
         noWarnings: true,
         noCallHome: true,
         noCheckCertificate: true,
         youtubeSkipDashManifest: true,
         extractAudio: true,
         audioFormat: "mp3",
-        output: "/downloads/%(title)s.%(ext)s",
     })
         .then((output) => {
-            console.log(output);
-            res.redirect("/downloads");
+            res.redirect(output.url);
         })
         .catch((error) => {
             console.log(error);
